@@ -4,8 +4,7 @@ This exercise relies on the k-means algorithm to perform unsupervised machine le
 
 ## Prerequisites
 
-Software and tools:
-* R notebook (I recommend Jupyter or RStudio)
+* Recommended R notebook: [Jupyter](http://jupyter.org/) or [RStudio](https://www.rstudio.com/)
 * dplyr package - used for data manipulation
 * ade4 package - used for converting categorical data into numerical dummy data
 * stats package - part of R Core 
