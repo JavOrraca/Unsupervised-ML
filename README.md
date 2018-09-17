@@ -11,7 +11,7 @@ This exercise relies on the k-means algorithm to perform unsupervised machine le
 
 ## Data
 
-The data used in this analysis reflects a historical snapshot of publicly available Sun Country Airlines data used for educational purposes. This repository will not cover the data cleanup phase. We'll begin with a data set that has been pre-processed and sanitized for the purpose of clustering in R. 
+The data used in this analysis reflects a historical snapshot of publicly available Sun Country Airlines data used for educational purposes. This repository will not cover the full data cleanup and sanitization phase. We'll start with a pre-processed data set ready for clustering via R. 
 
 ## Running the code
 
