@@ -129,6 +129,7 @@ Given the plot above, the change in SSE decreases significantly after ~5 cluster
 kcluster <- kmeans(clustering_data, 5)
 
 #The following will print the size of each cluster:
+
 kcluster$size
 
 3909  3384  2325  4656  3672
