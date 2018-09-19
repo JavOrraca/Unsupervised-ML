@@ -1,6 +1,6 @@
 # Unsupervised Machine Learning
 
-This exercise relies on the k-means algorithm to perform unsupervised machine learning to cluster a company's customers via the R programming language.
+This exercise relies on the k-means algorithm to perform unsupervised machine learning for clustering a company's customers via the R programming language.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ install.packages("ade4")
 library(ade4)
 ```
 
-Then, download the file SC_data_CleanedUp.csv, assign it to "data" and then aggregate to the customer-trip level. Confirm aggregation was successful by testing if the to-be-assigned "customer_data" object is a data frame.
+Then, download the file SC_data_CleanedUp.csv, assign it to "data" and then aggregate to the customer-trip level. Ensure aggregation was successful by 1) confirming the "customer_data" object is a data frame and 2) displaying the dimensions of the data frame.
 
 
 ```R
@@ -55,12 +55,13 @@ customer_data <- data %>%
 
 is.data.frame(customer_data)
 
-dim(customer_data)
-```
-
 TRUE
 
+dim(customer_data)
+
 17946  15
+```
+
 
 Remove unnecessary variables (encrypted names, customer IDs, etc.). Normalize the amt, days_pre_booked, and group_size variables.
 
@@ -90,14 +91,17 @@ clustering_data <- clustering_data %>%
     "true_origin","true_destination",
     "UflyMemberStatus","seasonality")])) %>%
   ungroup()
+```
 
-#For cleanliness, remove the original, non-dummy-coded variables.
+For cleanliness, remove the original, non-dummy-coded variables.
+
+```R
 clustering_data <- clustering_data %>%
   select(-BookingChannel,-age_group,-true_origin,
          -true_destination,-UflyMemberStatus,-seasonality)
 ```
 
-Now we can run k-means to gain a better understanding at the within SSE curve. We'll analyze SSE while comparing the impact on SSE from 1 to 15 clusters.
+We'll now run k-means to gain a better understanding at the within SSE curve. Plot to visualize and understand the impact on SSE comparing 1 to 15 clusters.
 
 _Note: The sum of squared errors (or "SSE") is the sum of the squared differences between each observation and its cluster's mean. In the context of this clustering analysis, SSE is used as a measure of variation. If all observations within a cluster are identical, the SSE would be equal to 0. Modeling for "the lowest SSE possible" is not ideal as this results in model overfitting._
 
@@ -124,12 +128,11 @@ Given the plot above, the change in SSE decreases significantly after ~5 cluster
 ```R
 kcluster <- kmeans(clustering_data, 5)
 
+#The following will print the size of each cluster:
 kcluster$size
-```
-
-The following represents the size of each cluster:
 
 3909  3384  2325  4656  3672
+```
 
 Lastly, add a new column with the cluster assignment into the CSV file, and call this field "Segment", for each observation in customer_data. After running the code below, this analysis will be completed.
 
