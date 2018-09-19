@@ -5,7 +5,7 @@ This exercise relies on the k-means algorithm to perform unsupervised machine le
 ## Prerequisites
 
 * [Anaconda Distribution](https://www.anaconda.com/distribution/): Allows for R environment installation, including Jupyter setup
-* [Jupyter](http://jupyter.org/): Web-based R notebook that can be launched via the Anaconda Navigator and natively reads .ipynb files
+* [Jupyter](http://jupyter.org/): Web-based R notebook that can be launched via the Anaconda Navigator and natively reads the .ipynb document included in the Files folder
 * [dplyr](https://dplyr.tidyverse.org/): This R package is for data manipulation and is part of the tidyverse R toolset
 * [ade4](https://cran.r-project.org/web/packages/ade4/index.html): This R package can used for converting categorical data into numerical dummy data and for multivariate data analysis
 
