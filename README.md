@@ -58,10 +58,9 @@ is.data.frame(customer_data)
 dim(customer_data)
 ```
 
-
 TRUE
-17946
-15
+
+17946  15
 
 Remove unnecessary variables (encrypted names, customer IDs, etc.). Normalize the amt, days_pre_booked, and group_size variables.
 
@@ -121,6 +120,7 @@ kcluster$size
 ```
 
 The following represents the size of each cluster:
+
 3909  3384  2325  4656  3672
 
 Lastly, add a new column with the cluster assignment into the CSV file, and call this field "Segment", for each observation in customer_data. After running the code below, this analysis will be completed.
