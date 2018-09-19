@@ -60,15 +60,8 @@ dim(customer_data)
 
 
 TRUE
-
-
-
-<ol class=list-inline>
-	<li>17946</li>
-	<li>15</li>
-</ol>
-
-
+17946
+15
 
 Remove unnecessary variables (encrypted names, customer IDs, etc.). Normalize the amt, days_pre_booked, and group_size variables.
 
@@ -124,23 +117,11 @@ Given the plot above, the change in SSE decreases significantly after ~5 cluster
 ```R
 kcluster <- kmeans(clustering_data, 5)
 
-print("The following represents the size of each cluster:")
 kcluster$size
 ```
 
-    [1] "The following represents the size of each cluster:"
-    
-
-
-<ol class=list-inline>
-	<li>3909</li>
-	<li>3384</li>
-	<li>2325</li>
-	<li>4656</li>
-	<li>3672</li>
-</ol>
-
-
+The following represents the size of each cluster:
+3909  3384  2325  4656  3672
 
 Lastly, add a new column with the cluster assignment into the CSV file, and call this field "Segment", for each observation in customer_data. After running the code below, this analysis will be completed.
 
