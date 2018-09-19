@@ -66,15 +66,17 @@ Remove unnecessary variables (encrypted names, customer IDs, etc.). Normalize th
 
 
 ```R
-clustering_data <- subset(customer_data,select = -c(PNRLocatorID,CustID,PaxName,UFlyRewards))
+clustering_data <- subset(customer_data,
+  select = -c(PNRLocatorID,CustID,PaxName,UFlyRewards))
 
 normalize <- function(x){
-  return ((x - min(x))/(max(x) - min(x)))}
+  return ((x - min(x))/(max(x) - min(x)))
+  }
 
 clustering_data = mutate(clustering_data,
-            amt = normalize(amt),
-            days_pre_booked = normalize(days_pre_booked), 
-            group_size = normalize(group_size))
+  amt = normalize(amt),
+  days_pre_booked = normalize(days_pre_booked), 
+  group_size = normalize(group_size))
 ```
 
 Since the k-means clustering algorithm works only with numerical data, we need to convert each of the categorical factor levels into numerical dummy variables ("0" or "1"). The ade4 package will be used to convert the categorical data into these numerical dummy variables.
@@ -83,11 +85,16 @@ Since the k-means clustering algorithm works only with numerical data, we need t
 ```R
 clustering_data <- as.data.frame(clustering_data)
 clustering_data <- clustering_data %>% 
-  cbind(acm.disjonctif(clustering_data[,c("BookingChannel","age_group","true_origin","true_destination",
-                                          "UflyMemberStatus","seasonality")])) %>% ungroup()
+  cbind(acm.disjonctif(clustering_data[,
+    c("BookingChannel","age_group",
+    "true_origin","true_destination",
+    "UflyMemberStatus","seasonality")])) %>%
+  ungroup()
 
 #For cleanliness, remove the original, non-dummy-coded variables.
-clustering_data<-clustering_data %>% select(-BookingChannel,-age_group,-true_origin,-true_destination,-UflyMemberStatus,-seasonality)
+clustering_data<-clustering_data %>%
+  select(-BookingChannel,-age_group,-true_origin,
+         -true_destination,-UflyMemberStatus,-seasonality)
 ```
 
 Now we can run k-means to gain a better understanding at the within SSE curve. We'll analyze SSE while comparing the impact on SSE from 1 to 15 clusters.
@@ -103,7 +110,8 @@ for (n in 1:15) {
   SSE_curve[n] <- sse
 }
 
-plot(1:15, SSE_curve, type="b", main="SSE Curve for Ideal k-Value", xlab="Number of Clusters", ylab="Sum of Squared Errors (SSE)")
+plot(1:15, SSE_curve, type="b", main="SSE Curve for Ideal k-Value",
+  xlab="Number of Clusters", ylab="Sum of Squared Errors (SSE)")
 ```
 
 
