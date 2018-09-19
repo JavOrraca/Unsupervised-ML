@@ -1,6 +1,6 @@
 # Unsupervised Machine Learning
 
-This exercise relies on the k-means algorithm to perform unsupervised machine learning for clustering via the R programming language.
+This exercise relies on the k-means algorithm to perform unsupervised machine learning to cluster a company's customers via the R programming language.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This exercise relies on the k-means algorithm to perform unsupervised machine le
 
 ## Data
 
-The data used in this analysis reflects a historical snapshot of Sun Country Airlines data used for educational purposes. This repository will not cover the full data cleanup and sanitization process. We'll start with a pre-processed data set ready for clustering via R. 
+The data used in this analysis reflects a historical snapshot of Sun Country Airlines customer data used for educational purposes. No private / personal identification information was included as part of this sample data set. This repository will not cover the full data cleanup and sanitization process. We'll start with a pre-processed data set ready for clustering via R. 
 
 ## Running the code
 
