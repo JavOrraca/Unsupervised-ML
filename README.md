@@ -37,8 +37,8 @@ Then, download the file SC_data_CleanedUp.csv, assign it to "data" and then aggr
 ```R
 data <- read.csv("SC_data_CleanedUp.csv")
 
-customer_data <- data%>% 
-  group_by(PNRLocatorID,CustID)%>%
+customer_data <- data %>% 
+  group_by(PNRLocatorID,CustID) %>%
   summarise(PaxName = first(PaxName),
             BookingChannel = first(BookingChannel), 
             amt = max(TotalDocAmt), 
@@ -92,7 +92,7 @@ clustering_data <- clustering_data %>%
   ungroup()
 
 #For cleanliness, remove the original, non-dummy-coded variables.
-clustering_data<-clustering_data %>%
+clustering_data <- clustering_data %>%
   select(-BookingChannel,-age_group,-true_origin,
          -true_destination,-UflyMemberStatus,-seasonality)
 ```
